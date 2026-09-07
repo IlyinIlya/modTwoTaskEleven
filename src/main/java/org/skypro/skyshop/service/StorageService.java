@@ -8,12 +8,7 @@ import org.skypro.skyshop.model.product.SimpleProduct;
 import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class StorageService {
@@ -122,5 +117,9 @@ public class StorageService {
         searchables.addAll(articles.values());
 
         return searchables;
+    }
+
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(products.get(id));
     }
 }
